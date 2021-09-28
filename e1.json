@@ -1,0 +1,124 @@
+{
+    "fruit": "Apple",
+    "size": "Large",
+    "color": "Red"
+}
+
+
+
+
+
+
+
+
+
+let jsdata=[
+    {
+        "id":1,
+        "name":"Bruce Wayne",
+        "subject1":80,
+        "subject2":45,
+        "subject3":90
+    },
+    {
+        "id":2,
+        "name":"Diana",
+        "subject1":56,
+        "subject2":74,
+        "subject3":78
+    },
+    {
+        "id":3,
+        "name":"Clark Kent",
+        "subject1":67,
+        "subject2":78,
+        "subject3":90
+    },
+    {
+        "id":4,
+        "name":"Barry Allen",
+        "subject1":89,
+        "subject2":35,
+        "subject3":64
+    },
+    {
+        "id":5,
+        "name":"Authue Curry",
+        "subject1":76,
+        "subject2":65,
+        "subject3":100
+    },
+    {
+        "id":6,
+        "name":"Victor Stone",
+        "subject1":99,
+        "subject2":87,
+        "subject3":64
+    }
+    
+]
+let stu={};
+
+let value=``;
+
+let data=``;
+
+let main=``;
+
+const tableFun=()=>{
+    
+const tablehead=()=>{
+for(let i=0;i<jsdata.length;i++){
+     
+    data=``;
+    if (i<1){
+    for(stu in jsdata[i]){
+        value=stu.toUpperCase();
+    
+        let td=`<th>${value}</th>`;
+        data=data+td;
+  
+        
+        
+    }
+    td=`<th>Max marks</th>`;  
+     data=data+td;    
+    let tr=`<tr>${data}</tr>`;
+    main=main+tr;
+}
+
+    }
+    return main;
+}
+    
+
+document.querySelector("table").innerHTML=`${tablehead()}`;
+
+
+const tablerow=()=>{
+for(let i=0;i<jsdata.length;i++){
+     
+    data=``;
+    for(stu in jsdata[i]){
+        value=jsdata[i][`${stu}`];
+        let td=`<td>${value}</td>`;
+        data=data+td;
+      
+        
+    }
+    let maxMark=Math.max(jsdata[i].subject1,jsdata[i].subject2,jsdata[i].subject3);
+  
+    td=`<td>${maxMark}</td>`;
+        data=data+td;
+    let tr=`<tr>${data}</tr>`;
+    main=main+tr;
+}
+return main;
+}
+
+
+document.querySelector("table").innerHTML=`${tablerow()}`;
+
+
+    
+}
